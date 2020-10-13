@@ -42,3 +42,30 @@ margin-top: 15px;
   flex: 1;
   order: 4;
 }
+
+.game{
+  width:30%;
+  margin:auto;
+  text-align: center;
+  height:500px;
+  border:5px solid goldenrod;
+  box-shadow: 1px 1px 20px gold,
+  -1px -1px 20px gold;
+}
+
+
+#current-word{
+  font-weight:bold;
+  font-size: 40px;
+}
+
+#typing-area{
+ font-size: 25px;
+ font-weight: bold;
+ text-align: center;
+ width:60%;
+}
+
+#typing-div{
+  padding-top:10px;
+}

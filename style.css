@@ -1,7 +1,47 @@
 * {
   box-sizing: border-box;
 }
+body{
+  background: rgb(124, 123, 123);
+ 
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
+ .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: beige;
+  padding-top: 25px;
+  width: 100%;
+  padding: 20px;;
+}
+
+.list-div{
+  padding: 0px 10px;
+margin-top: 15px;
+  flex:1;
+  order: 1;
+
+}
+.sec-div{
+  flex: 1;
+  order: 2;
+}
+.high-Score-div{
+  flex: 1;
+  order: 3;
+}
+.score-div{
+  flex: 1;
+  order: 4;
+}
 
 .game{
   width:30%;

@@ -8,51 +8,93 @@
 </head>
 <body>
     <div class="container">
-     
-        <div class="header">
-            
-            <div class="list-div inner-header">
-                <label>Levels:</label>
-                <select  id="level-list"  name="level" >
-                    <option value="10">easy</option>
-                    <option value="8">medium</option>
-                    <option value="5">hard</option>
-                    <option value="3">legendary</option>
-                </select>
-           </div>
-            <div class="sec-div inner-header">
-            <span>Seconds: </span>
-
-            <div id="sec">
+        <div class="game">
+            <div class="header">
                 
-            </div>
-            </div>
-
-            <div class="high-Score-div inner-header" >
-                <span>High-Score: </span>
-            <div id="high-score">
-
-            </div>
-            </div>
-
-            <div class="score-div inner-header" >
-                <span>Score:</span>
-                <div id="score">
-
+                <div class="list-div inner-header box">
+                    <span>Levels:</span>
+                    <span>
+                    <!-- <select id="level-list1"  name="level" >
+                        <option value="10">easy</option>
+                        <option value="8">medium</option>
+                        <option value="5">hard</option>
+                        <option value="3">legendary</option>
+                    </select> -->
+                    <input type="text" class="current-levels" id="level-list1" disabled />
+                </span>
+               </div>
+                <div class="sec-div inner-header">
+                <span>Seconds: </span>
+    
+                <span id="sec">
+                    0s
+                </span>
+                </div>
+    
+                <div class="high-Score-div inner-header" >
+                    <span>High-Score: </span>
+                <span id="high-score">
+    
+                </span>
+                </div>
+    
+                <div class="score-div inner-header" >
+                    <span>Score:</span>
+                    <span id="score">
+                         0
+                    </span>
                 </div>
             </div>
-        </div>
-
-
-
-        <div class="game">
             <div id="current-word"></div>
             <div id="typing-div"><input id="typing-area" type="text"></div>
         </div>
+        <div class="holder">
+            <div class="inner-holder-1">
+              <span class="title-pass">Passed</span>  <div class="inner-holder" id="pass-words"></div>
+            </div>
 
-
-
+            <div class="inner-holder-1">
+                <span class="title-failed">Failed</span>  <div class="inner-holder" id="fail-words"></div>
+            </div>
+        </div>
     </div>
+
+
+
+
+    <div class="overlay">
+        
+        <h1>How fast can you type?</h1>
+        <div class="inner-overlay">
+        <p>in this game you can check how fast can you type</p>
+        <p><span>Description: </span>You can choose the level of game difficulty<br/>
+        Each level represent different added time, easy: 10 seconds, medium: 8 seconds,<br/>
+        hard: 5 seconds and finally legendary : no you cannot beat it Lujain, 2 seconds. 
+        </p>
+        <p>When starting the game you should write the wanted word in the input<br/> 
+            before time runs out. if you wrote the word correctly, an extra time <br/> will be added to the timer 10,8,5 seconds depends on the level.
+        </p>
+    </div>
+    <div class="countdown" id="countdown">
+    </div>
+    <div class="row">
+    <div class="boxen">
+    <select id="level-list"  name="level" >
+        <option value="10">easy</option>
+        <option value="8">medium</option>
+        <option value="5">hard</option>
+        <option value="3">legendary</option>
+    </select>
+    </div>
+    <button class="startgame">START GAME</button>
+    </div>
+    </div>
+
+    <div class="restart-overlay hide">
+        <h1>Your score: <span id="restart-score"></span></h1>
+        <button class="restartgame">Restart</button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

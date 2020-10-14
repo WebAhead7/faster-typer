@@ -4,7 +4,17 @@ const input = document.querySelector('#typing-area');
 const currentScore = document.querySelector('#score');
 const highiestScore = document.querySelector('#high-score');
 const level = document.querySelector('#level-list');
-
+const innerLevel = document.querySelector('#level-list1');
+const passWords = document.querySelector('#pass-words');
+const failWords = document.querySelector('#fail-words');
+const startButton = document.querySelector('.startgame');
+const overlay = document.querySelector('.overlay');
+const overlayContent = document.querySelector('.inner-overlay')
+const overlayHeader = document.querySelector('.overlay h1');
+const overlayCountdown = document.querySelector('#countdown');
+const restartOverlay = document.querySelector('.restart-overlay');
+const restartButton = document.querySelector('.restartgame');
+const finalScore = document.querySelector('#restart-score');
 input.focus();
 const words = ['can','type', 'faster','program','biology','designer', 'development', 'javascript','webahead7'];
 
@@ -18,21 +28,28 @@ level.addEventListener("change",(e)=>{
 let score = 0;
 let countDown=3;
 let randomText;
-const failed=[];
-const success=[];
+let failed=[];
+let success=[];
 let flag;
 // let userInput = input.value;
+
 
 
 let timer;
 
 
 function filterWords(check){
+    let passed;
+
     if(!check){
         failed.push(input.value);
+        passed =  `<span class="failed-word">${input.value}</span>`
+        failWords.insertAdjacentHTML('beforeend', passed)
     }
     else if(check){
         success.push(input.value);
+        passed = `<span class="passed-word">${input.value}</span>`
+        passWords.insertAdjacentHTML('beforeend', passed)
     }
 }
 
@@ -62,15 +79,33 @@ function start() {
 
 
   function startGame(){
-      console.log(selectedLevel);
-    let t=setInterval(function(){
-        console.log(countDown);
-        countDown--;
-        if(countDown==0){
-            clearInterval(t);
+
+     innerLevel.value = level.options[level.selectedIndex].text;
+       startButton.classList.remove('show');
+       overlayHeader.classList.remove('show');
+       overlayContent.classList.remove('show');
+
+      startButton.classList.add('hide');
+     
+      overlayHeader.classList.add('hide');
+
+      overlayContent.classList.add('hide');
+        overlayCountdown.style.display = 'flex';
+      level.style.display = 'none';
+    
+      let t = setInterval(function(){
+          overlayCountdown.innerText = `${countDown}`
+          countDown--;
+        if(countDown == -1){
+            overlay.classList.toggle('hide');
             start();
+            input.focus();
+            clearInterval(t);
         }
     },1000);
+
+
+
   }
 
 
@@ -103,8 +138,8 @@ function updateScore() {
 
 function gameOver() {
 
-
-
+    restartOverlay.style.display = 'flex';
+    finalScore.innerText = score;
     let storage=localStorage.getItem("highScore");
     let newStorage=Array.from(JSON.parse(storage));
     console.log(storage);
@@ -114,7 +149,19 @@ function gameOver() {
 }
 
 function restartGame(){
-     selectedLevel=Number(level.value);
+
+    restartOverlay.style.display = 'none';
+    overlay.classList.toggle('hide');
+    startButton.classList.remove('hide');
+    startButton.classList.add('show');
+    overlayHeader.classList.remove('hide');
+    overlayHeader.classList.add('show');
+    level.style.display = 'block';
+    overlayContent.classList.remove('hide');
+    overlayCountdown.style.display = 'none';
+
+
+
      score = 0;
      time = 10;
      countDown=3;
@@ -154,3 +201,6 @@ input.addEventListener('keyup',(e)=>{
 
     // console.log(randomText.length, randomText);
 })
+
+startButton.addEventListener('click', startGame);
+restartButton.addEventListener('click', restartGame);

@@ -1,9 +1,8 @@
 * {
   box-sizing: border-box;
 }
-body{
+body {
   background: rgb(124, 123, 123);
- 
 }
 .container {
   display: flex;
@@ -13,59 +12,64 @@ body{
   position: relative;
 }
 
- .header {
+.header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   background-color: beige;
-  padding-top: 25px;
   width: 100%;
-  padding: 20px;;
+  padding: 10px 20px;
 }
 
-.list-div{
+.header div {
+  flex: 1 0 auto;
+}
+
+.inner-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.list-div {
   padding: 0px 10px;
-margin-top: 15px;
-  flex:1;
-  order: 1;
-
-}
-.sec-div{
+  margin-top: 15px;
   flex: 1;
-  order: 2;
 }
-.high-Score-div{
+.sec-div {
   flex: 1;
-  order: 3;
 }
-.score-div{
+.high-Score-div {
   flex: 1;
-  order: 4;
+}
+.score-div {
+  flex: 1;
 }
 
-.game{
-  width:30%;
-  margin:auto;
+.game {
+  width: 60%;
+  margin: auto;
   text-align: center;
-  height:500px;
-  border:5px solid goldenrod;
-  box-shadow: 1px 1px 20px gold,
-  -1px -1px 20px gold;
+  height: 500px;
+  border: 5px solid goldenrod;
+  box-shadow: 1px 1px 20px gold, -1px -1px 20px gold;
 }
 
-
-#current-word{
-  font-weight:bold;
+#current-word {
+  font-weight: bold;
   font-size: 40px;
 }
 
-#typing-area{
- font-size: 25px;
- font-weight: bold;
- text-align: center;
- width:60%;
+#typing-area {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  width: 60%;
 }
 
-#typing-div{
-  padding-top:10px;
+#typing-div {
+  padding-top: 10px;
 }

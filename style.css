@@ -1,21 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap");
 
+:root {
+  --bg-color: #0563af;
+  --header-color: #46b3e6;
+  --font-color: #fff;
+  --shadow-color: #000;
+  --primary-color: #19203f;
+}
+
+.dark {
+  --bg-color: #0e151c;
+  --header-color: #15202b;
+  --font-color: #46b3e6;
+  --shadow-color: #f45f12;
+  --primary-color: #19203f;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Cairo", sans-serif;
 }
 
 body {
-  background: #004882;
+  background-color: var(--bg-color);
 }
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 50px 0;
 }
 
 .header {
@@ -23,14 +39,14 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: #46b3e6;
+  background-color: var(--header-color);
   width: 100%;
   padding: 20px 20px;
   font-size: 30px;
   font-weight: bolder;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  color: #fff;
+  color: var(--font-color);
 }
 
 .header div {
@@ -43,6 +59,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.main-header {
+  font-size: 80px;
+  color: var(--font-color);
+  font-weight: bold;
 }
 
 .game {
@@ -61,7 +83,7 @@ body {
 #current-word {
   font-weight: bold;
   font-size: 60px;
-  color: #fff;
+  color: var(--font-color);
 }
 
 #typing-area {
@@ -82,8 +104,8 @@ body {
 }
 
 .current-levels {
-  background-color: #0563af;
-  color: white;
+  background-color: var(--bg-color);
+  color: var(--font-color);
   padding: 12px;
   width: 60%;
   border: none;
@@ -129,40 +151,40 @@ body {
   display: flex;
   width: 100%;
   padding: 10px 1px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .inner-holder-1 span.title-pass {
   padding: 10px 20px;
   background-color: green;
-  color: #fff;
+  color: var(--font-color);
   font-size: 20px;
-  width: 15%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  width: 100px;
+  border-radius: 10px;
+  margin-left: 10px;
 }
 
 .inner-holder-1 span.title-failed {
   padding: 10px 20px;
   background-color: red;
-  color: #fff;
+  color: var(--font-color);
   font-size: 20px;
-  width: 15%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  width: 100px;
+  border-radius: 10px;
+  margin-left: 10px;
 }
 
 .passed-word {
   padding: 0 10px;
-  color: white;
+  color: var(--font-color);
   font-size: 18px;
   border-right: 1px dotted #000;
 }
 
 .failed-word {
   padding: 0 10px;
-  color: white;
+  color: var(--font-color);
   font-size: 18px;
   border-right: 1px dotted #000;
 }
@@ -183,13 +205,12 @@ body {
 
 .overlay h1 {
   font-size: 50px;
-
-  color: #fff;
+  color: var(--font-color);
 }
 
 .overlay p {
   font-size: 30px;
-  color: #fff;
+  color: var(--font-color);
   font-weight: 400;
 }
 
@@ -199,7 +220,7 @@ body {
   border-radius: 15px;
   outline: none;
   cursor: pointer;
-  color: #fff;
+  color: var(--font-color);
   background-color: #004882;
   font-weight: bold;
   margin-left: 10px;
@@ -215,7 +236,7 @@ body {
   border-radius: 15px;
   outline: none;
   cursor: pointer;
-  color: #fff;
+  color: var(--font-color);
   background-color: #004882;
   font-weight: bold;
   margin-left: 10px;
@@ -232,14 +253,14 @@ body {
 #countdown {
   display: flex;
   font-size: 180px;
-  color: #fff;
+  color: var(--font-color);
   font-weight: bold;
 }
 
 .boxen select {
   height: 100%;
   background-color: #004882;
-  color: white;
+  color: var(--font-color);
   padding: 12px;
   width: 100%;
   border: none;
@@ -277,7 +298,7 @@ body {
 .restart-overlay h1 {
   font-size: 55px;
   font-weight: bold;
-  color: #fff;
+  color: var(--font-color);
 }
 
 .hide {
@@ -286,4 +307,44 @@ body {
 
 .show {
   display: flex;
+}
+
+@media all and (max-width: 1220px) {
+  .header {
+    padding: 20px 20px;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
+  .main-header {
+    font-size: 50px;
+  }
+
+  .current-levels {
+    padding: 1px;
+    width: 60%;
+    font-size: 17px;
+  }
+}
+
+@media all and (max-width: 1030px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  .inner-header {
+    width: 40%;
+  }
+}
+
+@media all and (max-width: 735px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  .inner-header {
+    width: 40%;
+  }
+
+  .main-header {
+    font-size: 40px;
+  }
 }

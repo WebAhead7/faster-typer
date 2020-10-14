@@ -6,7 +6,7 @@ const highiestScore = document.querySelector('#high-score');
 const level = document.querySelector('#level-list');
 
 input.focus();
-const words = ['can','type', 'faster','biolog','biology','designer', 'development', 'javascript','webahead7'];
+const words = ['can','type', 'faster','program','biology','designer', 'development', 'javascript','webahead7'];
 
 let selectedLevel=10;
 let time=10;

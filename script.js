@@ -8,11 +8,6 @@ const level = document.querySelector('#level-list');
 input.focus();
 const words = ['can','type', 'faster','biolog','biology','designer', 'development', 'javascript','webahead7'];
 
-let lvl1 = 7;
-let lvl2 = 5;
-let lvl3 = 2;
-
-
 let score = 0;
 let time = 10;
 let randomText;
@@ -33,7 +28,6 @@ function randomWord(){
     randomWord();      
       }
   )();
-
 
 function showWord(){
     currentWord.innerText = randomText;

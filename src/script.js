@@ -15,6 +15,8 @@ let success=[];
 let flag;
 let timer;
 
+
+//Updates the correct/wrong words inside the DOM
 function filterWords(check){
     let passed;
 
@@ -30,6 +32,7 @@ function filterWords(check){
     }
 };
 
+//Updating the high score in the local storage
 function highScore(){
     let storage=localStorage.getItem("highScore");
     if(!JSON.parse(storage)){
@@ -46,10 +49,12 @@ function highScore(){
     
 };
 
+//This function starts the timer inside the game (after starGame function works)
 function start() {
     timer = setInterval(updateTimer, 1000);
 };
 
+//This function sets everything to its default, then starts the game.
 function startGame(){
     bgMusic.volume=0.2;
     bgMusic.play();      
@@ -75,29 +80,36 @@ function startGame(){
     },1000);
 };
 
+/*Here the funciton generates random word from the array and assign it
+  to the variable randomText*/
 function randomWord(){
     randomText = words[Math.floor(Math.random() * words.length )];
     showWord();
 };
 
+//Here the first random word is generated(slef invoked).
 (function firstRandom(){
     randomWord();
       }
   )();
 
+  //This function shows the random word in the DOM
 function showWord(){
     currentWord.innerText = randomText;
 };
 
+//Checks if the typed word equals to the random word.
 function checkWords() {
     return  randomText === input.value
 };
 
+//This function updates the score (also updates in the DOM)
 function updateScore() {
     score++;
     currentScore.innerText=score;
 };
 
+//When time runs out the game will stop
 function gameOver() {
     
     if(score<5){
@@ -115,6 +127,7 @@ function gameOver() {
     localStorage.setItem("highScore",JSON.stringify(newStorage));
 };
 
+//Restarts the game.
 function restartGame(){
     restartOverlay.style.display = 'none';
     overlay.classList.toggle('hide');
@@ -138,6 +151,7 @@ function restartGame(){
     })
 };
 
+//Updates the timer.
 function updateTimer(){
     time--;
     currentTimer.innerText = `${time}s`;
@@ -147,6 +161,7 @@ function updateTimer(){
     }
 };
 
+//Starts everytime a key is clicked.
 input.addEventListener('keyup',(e)=>{
     if(input.value.length >= randomText.length){
        flag = checkWords();
@@ -167,6 +182,7 @@ input.addEventListener('keyup',(e)=>{
     }
     }
 });
+
 
 startButton.addEventListener('click', startGame);
 restartButton.addEventListener('click', restartGame);

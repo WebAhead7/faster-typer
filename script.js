@@ -1,7 +1,8 @@
 highScore();
+input.blur();
 innerLevel.value = level.options[level.selectedIndex].text;
-let selectedLevel=10;
-let time=10;
+let selectedLevel=5;
+let time=5;
 level.addEventListener("change",(e)=>{
     selectedLevel=parseInt(e.target.value);
     time=selectedLevel;
@@ -50,7 +51,8 @@ function start() {
 };
 
 function startGame(){
-
+    bgMusic.volume=0.2;
+    bgMusic.play();      
         innerLevel.value = level.options[level.selectedIndex].text;
         startButton.classList.remove('show');
         overlayHeader.classList.remove('show');
@@ -79,7 +81,7 @@ function randomWord(){
 };
 
 (function firstRandom(){
-    randomWord();      
+    randomWord();
       }
   )();
 
@@ -89,6 +91,7 @@ function showWord(){
 
 function checkWords() {
     if(randomText === input.value){
+        correctSound.play();
          return true;
     }else{
         return false;
@@ -101,6 +104,11 @@ function updateScore() {
 };
 
 function gameOver() {
+    bgMusic.pause();
+    if(score<5){
+        gameOverSound.volume=0.2;
+        gameOverSound.play();
+    }
     input.value = '';
     input.blur();
     restartOverlay.style.display = 'flex';
@@ -122,12 +130,16 @@ function restartGame(){
     overlayContent.classList.remove('hide');
     overlayCountdown.style.display = 'none';
      score = 0;
-     time = 10;
+     time = 5;
      countDown=3;
      failed=[];
      success=[];
      failWords.innerHTML = '';  
      passWords.innerHTML = '';   
+     level.addEventListener("change",(e)=>{
+        selectedLevel=parseInt(e.target.value);
+        time=selectedLevel;
+    })
 };
 
 function updateTimer(){

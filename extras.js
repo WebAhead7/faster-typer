@@ -1,3 +1,6 @@
+const correctSound=new Audio("./sounds/correct.mp3");
+const gameOverSound=new Audio("./sounds/game-over.mp3");
+const bgMusic=new Audio("./sounds/bg-music.mp3");
 const currentTimer = document.querySelector('#sec');
 const currentWord = document.querySelector('#current-word');
 const input = document.querySelector('#typing-area');
@@ -20,5 +23,13 @@ const darkMode = document.querySelector(
   );
     const body = document.querySelector('body');
 input.focus();
-const words = ['can','type', 'faster','program','biology','designer', 'development', 'javascript','webahead7'];
+const words = ['faster','program','biology','designer', 'development',
+'javascript','webahead7',"triangle","facility","proper","emphasis",
+"inhabitant","improvement","executive","distribute","responsibility",
+"disappear","restaurant","shareholder","magnetic","hardware","software",
+"possibility","instruction","identification","recommendation","enthusiasm",
+"concentration","mario","ahmed","alaa","muhammad","mahmoud","dana","shireen",
+"hamodi","shoog","rakad","salah","hala","nuwrs","nizar","jeries","ammar","omkalthom",
+"myassar","lujain"
+];
 

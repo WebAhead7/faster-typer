@@ -14,9 +14,9 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)<br>
-* [Built With](#built-with))<br>
-* [Getting Started](#getting-started))<br>
-* [Contact Us](#contact))<br>
+* [Built With](#built-with) <br>
+* [Getting Started](#getting-started) <br>
+* [Contact Us](#Contact US) <br>
 
 
 <!-- ABOUT THE PROJECT -->

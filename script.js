@@ -1,4 +1,5 @@
 highScore();
+input.blur();
 innerLevel.value = level.options[level.selectedIndex].text;
 let selectedLevel=10;
 let time=10;
@@ -88,11 +89,7 @@ function showWord(){
 };
 
 function checkWords() {
-    if(randomText === input.value){
-         return true;
-    }else{
-        return false;
-    }
+    return  randomText === input.value
 };
 
 function updateScore() {
@@ -139,24 +136,20 @@ function updateTimer(){
     }
 };
 
-function checkGame(falgs){
-    if(!falgs){
-        filterWords(falgs);
+input.addEventListener('keyup',(e)=>{
+    if(input.value.length >= randomText.length){
+       flag = checkWords();
+       if(!flag){
+        filterWords(flag);
         randomWord();
         input.value = '';
     } else {
-     filterWords(falgs);
+     filterWords(flag);
         time += selectedLevel;
         input.value = '';
         updateScore();
         randomWord();
     }
-};
-
-input.addEventListener('keyup',(e)=>{
-    if(input.value.length >= randomText.length){
-       flag = checkWords();
-       checkGame(flag)
     }
 });
 

@@ -7,7 +7,7 @@
 <p align="center">
   <img src="/src/img/Typer1.gif" width=720px height=360px />
 </p>
-  <h2 align="center"><a href="https://webahead7.github.io/faster-typer/">TRY IT NOW</h2>
+  <h2 align="center"><a href=" https://webahead7.github.io/faster-typer/">TRY IT NOW</h2>
 
 
 <!-- TABLE OF CONTENTS -->
